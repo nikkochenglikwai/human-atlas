@@ -86,3 +86,61 @@ h1 .edition{font-family:inherit;font-weight:500;font-size:10px;letter-spacing:.0
 @media(max-width:767px){body:has(.detail-sheet) .view-controls{visibility:hidden}}
 
 @media(max-height:600px) and (orientation:landscape){body:has(.detail-sheet) .bottom-dock{left:12px;right:324px;width:auto;transform:none;max-width:none;margin:0}}
+
+/* Dala dark-stage theme (Refero style reference): pure black void, Electric Iris for the single primary action,
+   Saffron Spark for labels, ultra-light body copy, weight-400 headlines carried by scale and tight tracking. */
+:root{--void:#000;--bone:#fff;--ash:#9a9a9a;--mist:#bdbdbd;--iris:#8052ff;--iris-soft:#8052ff26;--saffron:#ffb829;--verdant:#15846e;--hairline:#ffffff1f;
+ --background:#000;--foreground:#fff;--card:#000;--card-foreground:#fff;--popover:#0a0a0c;--popover-foreground:#fff;--primary:#8052ff;--primary-foreground:#fff;--secondary:#ffffff12;--secondary-foreground:#fff;--muted:#ffffff12;--muted-foreground:#9a9a9a;--accent:#ffffff14;--accent-foreground:#fff;--destructive:#ff6b57;--border:#ffffff1f;--input:#ffffff2e;--ring:#8052ff;--radius:1.5rem;
+ color:#fff;background:#000;color-scheme:dark;font-feature-settings:"ss01" on}
+html,body,#root{background:#000}
+button:focus-visible,a:focus-visible{outline-color:var(--iris)}
+button:not([data-slot]):hover{color:#fff;background:#ffffff10}
+.vignette{background:radial-gradient(ellipse at 51% 43%,transparent 40%,#000 100%)}
+.glass{background:#000000b8;border:0;border-radius:24px;box-shadow:none;backdrop-filter:blur(20px)}
+.eyebrow{color:var(--saffron);font-weight:600;letter-spacing:.025em;text-transform:uppercase}
+.status-dot{background:var(--iris);box-shadow:0 0 14px var(--iris)}
+h1{font-weight:400;letter-spacing:-.04em;font-size:42px;line-height:1.1;color:#fff}
+h1 .edition{color:var(--ash);border:1px solid var(--hairline);background:none}
+.identity-meta,.identity-meta span{color:var(--ash);font-weight:200}
+.top-actions button{background:none;border:0;color:var(--ash);text-transform:uppercase;letter-spacing:.025em;font-weight:600;font-size:12px}
+.top-actions button:hover,.top-actions .active{background:none;color:#fff}
+.top-actions kbd{border-color:var(--hairline);color:var(--ash);opacity:1}
+.panel-heading{color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:.025em;font-size:12px}
+.panel-heading .small-number,.small-number{background:none;color:var(--ash)}
+.layer-presets{background:none;border-bottom:1px solid var(--hairline);border-radius:0;padding:14px 0 12px;gap:6px}
+.layer-presets button{background:none;border:1px solid var(--hairline);border-radius:9999px;color:var(--ash);font-weight:400}
+.layer-presets button[aria-pressed=true]{background:var(--iris);border-color:var(--iris);color:#fff;box-shadow:none}
+.system-name{color:var(--ash);font-weight:200}.enabled .system-name{color:#fff;font-weight:400}
+.system-dot{box-shadow:none}.system-count{color:var(--ash)}
+.system-row [data-slot=switch]{--primary:#8052ff}
+.system-list{scrollbar-color:#ffffff30 transparent}
+.panel-foot{border-top:1px solid var(--hairline);color:var(--ash)}.panel-foot button{color:var(--ash)}.panel-foot button:hover{color:#fff;background:none}
+.view-controls{border-radius:24px}.view-controls button{color:var(--ash);border-radius:9999px}
+.view-controls .active{background:var(--iris);color:#fff;box-shadow:none}.view-controls i{background:var(--hairline)}
+.scene-caption{color:var(--saffron);font-weight:600}.caption-line{background:var(--hairline)}
+.explode-label{color:#fff;font-weight:400}
+.explode-label output{background:none;border:1px solid var(--hairline);color:#fff;border-radius:9999px}.explode-label output span,.slider-endpoints{color:var(--ash)}
+.explode-control [data-slot=slider-thumb]{background:var(--iris);border:3px solid #000;box-shadow:0 0 0 1px var(--iris)}
+.explode-control [data-slot=slider-range]{background:var(--iris)}.explode-control [data-slot=slider-track]{background:#ffffff26}
+.dock-reset,.dock-layers{color:var(--ash);border-color:var(--hairline)}
+.studio-footer,.studio-footer button{color:var(--ash);font-weight:200}.studio-footer b{color:#ffffff40}.studio-footer button:hover{color:#fff;background:none}
+.loading strong{color:#fff;font-weight:400}.loading span{color:var(--ash)}.loading-track{background:var(--hairline)}.loading-track i{background:var(--iris)}
+.error button{border-color:var(--hairline);border-radius:9999px}
+.search-panel [data-slot=input-group]{background:#ffffff0d;border-radius:9999px}.search-panel input{color:#fff}.search-note{color:var(--ash);font-weight:200}
+.anatomy-search-results{background:#0a0a0c!important;border:1px solid var(--hairline)!important;color:#fff!important;border-radius:24px!important}
+.anatomy-choice [data-slot=select-trigger]{background:#000000b8;border-color:var(--hairline);border-radius:9999px;color:#fff}
+.part-hover{background:#000;border:1px solid var(--iris);color:#fff;box-shadow:none;border-radius:12px}
+.detail-sheet,.about-sheet{box-shadow:none;border-radius:24px}.about-sheet{border-radius:24px 0 0 24px}
+.detail-accent{background:var(--iris)!important}
+.structure-title{font-weight:400!important;letter-spacing:-.04em;color:#fff}
+.structure-description,.about-copy,.about-sheet [data-slot=sheet-description]{color:var(--mist)!important;font-weight:200}
+.about-copy strong,.about-copy h3{color:#fff;font-weight:400}.about-copy a,.source-link{color:var(--saffron)}
+.context-note,.structure-meta{color:var(--ash)}.structure-meta{border-color:var(--hairline)}.structure-meta strong{color:#fff;font-weight:400}
+.primary-action{background:var(--iris);border:0;color:#fff!important;border-radius:9999px;text-transform:uppercase;letter-spacing:.025em;font-weight:600}
+.primary-action:hover,.primary-action.active{background:#9370ff}
+.secondary-action{color:var(--ash)}.secondary-action:hover{color:#fff;background:none}
+.member-list h3{color:var(--ash)}.member-list button{border-color:var(--hairline);color:var(--mist);font-weight:200}.member-list button:hover{color:#fff;background:none}
+.detail-actions{border-top-color:var(--hairline)}.detail-scroll{scrollbar-color:#ffffff30 transparent}
+@media(max-width:767px){h1{font-size:32px}.layers-panel.mobile-open,.detail-sheet,.bottom-dock{background:#000000e6}}
+@media(max-width:350px){h1{font-size:26px}}
+.dock-reset,.dock-layers{border:0;border-radius:0;background:none}.dock-reset{border-left:1px solid var(--hairline)}.dock-layers{border-right:1px solid var(--hairline)}.dock-reset:hover,.dock-layers:hover{color:#fff;background:none}
