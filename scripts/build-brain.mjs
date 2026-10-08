@@ -61,7 +61,7 @@ for(const p of parts)if(!concepts.some(c=>c.id===p.conceptId)&&!covered.has(p.id
 const gz=gzipSync(bin,{level:9});
 fs.writeFileSync(new URL('brain-0.bin',out),bin);fs.writeFileSync(new URL('brain-0.bin.gz',out),gz);
 const atlas={version:'BodyParts3D 4.0 · brain subset',sex:'male',source:'BodyParts3D',scope:'Adult male reference brain, ventricles and glass skull · '+parts.length+' source meshes',parts,concepts,
- chunks:[{url:'/models/brain-0.bin',bytes:bin.length,gzip:'/models/brain-0.bin.gz',gzipBytes:gz.length}],triangles,
+ chunks:[{url:'models/brain-0.bin',bytes:bin.length,gzip:'models/brain-0.bin.gz',gzipBytes:gz.length}],triangles,
  optimized:src.optimized,transform:{scale:SCALE,shift,floor:FLOOR}};
 fs.writeFileSync(new URL('atlas.json',out),JSON.stringify(atlas));
 const byRegion={};for(const p of parts)byRegion[p.system]=(byRegion[p.system]??0)+1;
