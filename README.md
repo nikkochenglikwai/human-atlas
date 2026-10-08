@@ -1,17 +1,17 @@
-# Human Atlas
+# Brain & Psychology Atlas
 
-An interactive 3D anatomy explorer built with React, Three.js, and shadcn/ui. Take the BodyParts3D adult male reference apart into **2,234 individually selectable meshes**, explore **15 anatomical systems**, and search **3,432 named concepts**.
+An interactive 3D atlas that connects brain anatomy to the questions psychologists ask. Orbit and take apart **123 individually selectable structures** from the BodyParts3D adult male reference brain, then apply one of **ten psychology lenses** (executive control, emotion and threat, memory, reward and habit, language, perception and attention, skill learning, social cognition, stress, arousal and sleep) to light up the structures involved, with landmark studies, clinical relevance, what the model leaves out, and why each claim should be read with care.
 
-**[Explore the live demo](https://human-atlas-seven.vercel.app)**
+Built with React, Three.js and shadcn/ui, styled after the Dala dark-stage reference from [Refero Styles](https://styles.refero.design).
 
 ## Explore
 
-- Orbit, zoom, and select structures directly on the body.
-- Toggle individual systems or use skeleton and organ presets.
-- Move from assembled anatomy to a spaced inventory of every visible piece.
-- Search anatomical names and source identifiers.
-- Isolate a selected structure and read its details.
-- Use compact controls and detail panels on mobile.
+- Orbit, zoom and select structures directly on the brain.
+- Toggle eleven functional regions, or switch between cortex and deep structures.
+- Open a psychology lens to isolate its structures and read the evidence, with a stated limit for every lens.
+- Select any structure to see which lenses involve it and what role research assigns it.
+- Separate the brain into a spaced inventory of every structure; show a glass skull for context.
+- Search 187 named concepts and source identifiers.
 
 ## Run locally
 
@@ -22,43 +22,31 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3016. To build the static site, run `npm run build`; the output is in `dist/`.
+Open http://localhost:3016. To build the static site, run `npm run build`; the output is in `dist/` (about 9 MB, of which 3.2 MB is the compressed model).
+
+## Where things live
+
+| Concern | Location | Edit it to |
+| --- | --- | --- |
+| Psychology content | `app/psychology.json` | Add or revise a lens, role, study or caution. No code change needed. |
+| Regions and colours | `app/anatomy.ts` and the rules in `scripts/build-brain.mjs` | Regroup structures or recolour regions. |
+| 3D data | `public/models/` (generated) | Never edit by hand; rebuild with `npm run build:brain`. |
+| Full-body source | `raw/bodyparts3d/` | Leave unmodified; it is the immutable input to the build. |
 
 ## Validate
 
 ```sh
 npm run check
-node scripts/validate-atlas.mjs
-node scripts/validate-interactions.mjs
+npm run validate
 npm run build
 ```
 
-Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, and tap-versus-drag handling. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
+`validate` runs three checks: mesh buffers, names and concept membership (`validate-atlas.mjs`); that every lens resolves to real meshes, carries at least two dated evidence items, a clinical or applied entry, a "not modeled" statement and a caution (`validate-psychology.mjs`); and exploded-layout, search and tap-versus-drag contracts (`validate-interactions.mjs`). A lens that loses its evidence or points at a structure that no longer exists fails the build. Browser checks have exercised the desktop layout, the lens flow and a 390×844 phone layout; physical-device performance and real multitouch hardware have not been tested.
+
+## Reading the psychology layer
+
+Lens content is a teaching summary written for this atlas. Citations are given by author, year and journal reference so they can be checked; verify them against the primary papers before citing them. Lenses describe group-level associations from lesion, stimulation, recording and imaging studies. They do not diagnose individuals, and a region responding to a task does not show it performs that function alone (reverse inference). Mesh boundaries follow anatomical convention rather than functional parcellation, so a gyrus approximates, and sometimes spans, a functional area. Structures central to some circuits are not in the dataset: the nucleus accumbens, ventral tegmental area, substantia nigra, locus coeruleus, raphe nuclei and individual amygdala and thalamic nuclei. Each lens states which of these it is missing.
 
 ## Anatomy data
 
-The current viewer uses **BodyParts3D 4.0**, an adult male reference anatomy, licensed **CC BY 4.0**. It does not represent every human structure or variation. Individual source meshes are distinct from named concepts, which may group multiple meshes. Descriptions distinguish general system context from individual organ explanations.
-
-Geometry is simplified for browser performance while retaining every source mesh. The packaged model contains 2,288,268 triangles and downloads approximately 33 MB of compressed geometry. Full credits, source links, and adaptation details are in [ATTRIBUTION.md](public/ATTRIBUTION.md).
-
-This is an educational explorer, not a diagnostic or surgical tool.
-
-## How it works
-
-Geometry is merged into batches. Per-structure GPU textures control translation, visibility, and selection, while component geometry supports accurate picking. Exploded layouts pack only the visible pieces. Rendering updates when the scene changes; orbit controls remain responsive without thousands of separate draw calls.
-
-The optional WebMCP tools expose anatomy search and inspection in compatible browsers. The visible interface works without them.
-
-## Rebuilding geometry
-
-The repository includes browser-ready geometry. Rebuilding it is optional: obtain the official BodyParts3D OBJ archive and English metadata tables, prepare the joined concepts and display-system mappings, run `scripts/convert-anatomy.py`, then `node scripts/optimize-anatomy.mjs` and `node scripts/compress-models.mjs`. Simplification uses a 0.2% relative error limit per structure.
-
-## Deploy
-
-Import this repository into Vercel as a Vite project. The included `vercel.json` configures `npm ci`, `npm run build`, and the `dist` output directory. It can also be served by a static host.
-
-## License
-
-Original application code is released under the [MIT License](LICENSE). **The anatomy data has its own CC BY 4.0 license**; preserve the attribution when redistributing it. Third-party dependencies retain their respective licenses.
-
-Issues and pull requests are welcome. Please include reproduction steps and browser/device details for interaction problems.
+The viewer uses a subset of **BodyParts3D 4.0**, an adult male reference anatomy, licensed **CC BY 4.0**. It represents one reference male, not population variation. The subset, selection rules and adaptations are documented in `public/ATTRIBUTION.md`.

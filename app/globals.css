@@ -144,3 +144,32 @@ h1 .edition{color:var(--ash);border:1px solid var(--hairline);background:none}
 @media(max-width:767px){h1{font-size:32px}.layers-panel.mobile-open,.detail-sheet,.bottom-dock{background:#000000e6}}
 @media(max-width:350px){h1{font-size:26px}}
 .dock-reset,.dock-layers{border:0;border-radius:0;background:none}.dock-reset{border-left:1px solid var(--hairline)}.dock-layers{border-right:1px solid var(--hairline)}.dock-reset:hover,.dock-layers:hover{color:#fff;background:none}
+
+/* Psychology layer */
+h1{font-size:34px;max-width:420px}
+.lens-panel{width:380px;max-height:calc(100dvh - 140px);display:flex;flex-direction:column}
+.lens-list{overflow-y:auto;overscroll-behavior:contain;margin-top:10px;scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
+.lens-item{display:flex!important;flex-direction:column;align-items:flex-start!important;gap:4px;width:100%;height:auto!important;white-space:normal!important;text-align:left;padding:12px 4px!important;border-radius:0!important;border-bottom:1px solid var(--hairline)}
+.lens-item:last-child{border-bottom:0}
+.lens-name{font-size:15px;font-weight:400;color:#fff}.lens-item .lens-question{font-size:12px;font-weight:200;line-height:1.5;color:var(--ash)}
+.lens-item:hover .lens-name{color:var(--saffron)}
+.lens-question{font-size:15px;line-height:1.5;font-weight:400;color:var(--saffron);margin:0}
+.detail-sheet.is-lens{width:360px!important;max-width:360px!important}
+.psych-block{display:flex;flex-direction:column;gap:10px;padding-top:6px}
+.psych-block h3{margin:0;font-size:12px;font-weight:600;letter-spacing:.025em;text-transform:uppercase;color:var(--saffron)}
+.psych-role p,.psych-evidence p,.psych-plain,.psych-note{margin:0;font-size:13px;line-height:1.6;font-weight:200;color:var(--mist)}
+.psych-role strong{font-weight:400;color:#fff;font-size:13px}
+.psych-link{display:inline-flex!important;justify-content:flex-start!important;gap:4px;height:auto!important;min-height:32px;padding:4px 0!important;font-size:14px;font-weight:400;color:#fff!important;text-align:left;white-space:normal!important}
+.psych-link:hover{color:var(--saffron)!important;background:none}
+.psych-evidence{display:flex;flex-direction:column;gap:4px;padding-bottom:10px;border-bottom:1px solid var(--hairline)}
+.psych-evidence span{font-size:11px;color:var(--ash)}.psych-evidence b{font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--iris)}
+.psych-note{font-size:11px;color:var(--ash)}
+.psych-caution{border-left:2px solid var(--iris);padding-left:12px}
+@media(max-width:767px){h1{font-size:26px;max-width:280px}.lens-panel{width:auto;max-height:calc(100dvh - 150px)}.detail-sheet.is-lens{width:auto!important;max-width:none!important;max-height:56dvh}}
+@media(max-height:600px) and (orientation:landscape){.lens-panel{width:350px;max-height:calc(100dvh - 90px)}.detail-sheet.is-lens{width:320px!important}}
+.layers-panel{width:284px;bottom:84px}.system-name{font-size:12.5px}
+.system-list{padding-bottom:20px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 22px),transparent)}
+.detail-scroll{padding-bottom:24px;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 24px),transparent)}
+@media(min-width:768px){.detail-sheet.is-lens{top:92px!important;bottom:44px!important}}
+@media(max-width:1000px){.layers-panel{width:240px}}
+@media(max-width:767px){.layers-panel.mobile-open{width:auto}.detail-sheet.is-lens{max-height:46dvh}.detail-sheet.is-lens .structure-meta{display:none}.detail-sheet.is-lens .structure-description{font-size:13px!important}}

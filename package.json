@@ -1,5 +1,5 @@
 {
-  "name": "anatomy-studio",
+  "name": "brain-psychology-atlas",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,7 +9,9 @@
     "dev": "vite --host 0.0.0.0 --port 3016",
     "build": "vite build",
     "build:vercel": "vite build",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "build:brain": "node scripts/build-brain.mjs",
+    "validate": "node scripts/validate-atlas.mjs && node scripts/validate-psychology.mjs && node scripts/validate-interactions.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

@@ -1,0 +1,270 @@
+{
+ "version": "1.0",
+ "note": "Each lens maps psychological questions onto structures present in the 3D model. 'match' is a case-insensitive regular expression tested against the mesh name. Edit this file to change content; run `node scripts/validate-psychology.mjs` to confirm every structure still resolves.",
+ "lenses": [
+  {
+   "id": "executive",
+   "name": "Executive control & decision-making",
+   "question": "What lets people hold a goal, suppress an impulse and switch strategy?",
+   "summary": "Lateral, orbital and medial frontal cortex work with the basal ganglia and parietal cortex to maintain goals, inhibit prepotent responses and update rules. Executive control behaves like a network property, not a single 'executive centre'.",
+   "structures": [
+    {"match": "superior frontal gyrus", "role": "Dorsal and medial frontal cortex: self-generated action, working memory and, medially, self-referential thought."},
+    {"match": "middle frontal gyrus", "role": "Dorsolateral prefrontal territory: working memory, planning and holding task rules in mind."},
+    {"match": "inferior frontal gyrus", "role": "Response selection and inhibition. Right-sided inhibition findings are influential but debated."},
+    {"match": "orbital gyrus", "role": "Orbitofrontal cortex: compares option values and updates choices when outcomes change."},
+    {"match": "cingulate gyrus", "role": "Conflict and error monitoring, and the signal that effort is required (anterior portion)."},
+    {"match": "caudate nucleus", "role": "Basal-ganglia loop that gates which plans from frontal cortex reach action."}
+   ],
+   "notModeled": "Frontal cortex is divided here into gyri, not functional subregions such as dorsolateral, ventromedial or frontopolar cortex, and the frontoparietal network cannot be drawn as a network.",
+   "evidence": [
+    {"finding": "Frontal injury changed judgement and social conduct while leaving much else intact (the Phineas Gage case; later reappraisals show the historical record is thin).", "source": "Harlow 1848; Macmillan 2000", "kind": "case"},
+    {"finding": "Prefrontal cortex biases processing toward goal-relevant information in other regions.", "source": "Miller & Cohen 2001, Annual Review of Neuroscience 24:167", "kind": "theory"},
+    {"finding": "Right inferior frontal cortex is repeatedly implicated in stopping responses, though its specificity is contested.", "source": "Aron, Robbins & Poldrack 2004, Trends in Cognitive Sciences 8:170", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Behavioural-variant frontotemporal dementia", "note": "Early frontal degeneration with disinhibition, apathy and loss of empathy."},
+    {"name": "ADHD", "note": "Group-level differences in frontostriatal function are reported; imaging does not diagnose individuals."}
+   ],
+   "caution": "Executive tasks recruit widespread networks, and 'executive dysfunction' follows damage to many sites. A frontal gyrus lighting up in a study is not evidence that the gyrus performs the function."
+  },
+  {
+   "id": "emotion",
+   "name": "Emotion & threat",
+   "question": "How does the brain detect what matters and generate a felt, bodily response?",
+   "summary": "Salience detection, bodily state and context combine across limbic and paralimbic structures. The amygdala flags salient, often threatening, cues; the insula represents bodily state; the orbital and cingulate cortex regulate and re-value the response.",
+   "structures": [
+    {"match": "amygdala", "role": "Tags salient, especially threat-related, stimuli and boosts arousal and memory for emotional events."},
+    {"match": "insula", "role": "Interoception: the sense of the body's internal state, central to feelings such as disgust, pain and anxiety."},
+    {"match": "cingulate gyrus", "role": "Links emotion to control and autonomic output; anterior portions are engaged by affective pain and conflict."},
+    {"match": "orbital gyrus", "role": "Re-values stimuli and regulates emotional responses as circumstances change."},
+    {"match": "hypothalamus", "role": "Turns emotional appraisal into autonomic and hormonal output."},
+    {"match": "hippocampus", "role": "Supplies context so a threat response fits the situation, not just the cue."},
+    {"match": "habenula", "role": "Signals aversive outcomes and disappointment; its role in low mood is under study."}
+   ],
+   "notModeled": "Amygdala nuclei (basolateral, central), the periaqueductal grey and the ventromedial prefrontal subdivisions that carry much of the circuit detail are not separately modelled.",
+   "evidence": [
+    {"finding": "A patient with bilateral amygdala damage was impaired at recognising fear in faces.", "source": "Adolphs et al. 1994, Nature 372:669", "kind": "lesion"},
+    {"finding": "Fear circuits and the conscious feeling of fear are better treated as separable systems.", "source": "LeDoux & Pine 2016, American Journal of Psychiatry 173:1083", "kind": "review"},
+    {"finding": "The insula maps bodily state and underpins subjective feeling.", "source": "Craig 2002, Nature Reviews Neuroscience 3:655", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Anxiety disorders and PTSD", "note": "Heightened amygdala reactivity to threat cues and weaker prefrontal regulation are reported at group level."},
+    {"name": "Major depression", "note": "Altered amygdala, cingulate and prefrontal connectivity; effects are modest and heterogeneous."}
+   ],
+   "caution": "The amygdala is not a 'fear centre'. It also responds to novelty, ambiguity and positive salience, and constructionist accounts (Barrett 2017) argue emotions are not localised to dedicated circuits."
+  },
+  {
+   "id": "memory",
+   "name": "Memory & learning",
+   "question": "How are experiences encoded, consolidated and later retrieved?",
+   "summary": "The hippocampus binds the elements of an experience into an episodic memory and works with surrounding cortex to consolidate it. Papez-circuit structures relay this signal; emotional arousal via the amygdala strengthens it.",
+   "structures": [
+    {"match": "hippocampus", "role": "Binds events, places and context into episodic memory and supports spatial navigation."},
+    {"match": "parahippocampal gyrus", "role": "Scene and context processing; gateway between association cortex and hippocampus."},
+    {"match": "fornix", "role": "Main output pathway of the hippocampus toward mammillary bodies, septum and thalamus."},
+    {"match": "mammillary body", "role": "Papez-circuit relay; damaged in Korsakoff syndrome."},
+    {"match": "cingulate gyrus", "role": "Part of the Papez circuit; posterior cingulate belongs to memory-retrieval networks."},
+    {"match": "amygdala", "role": "Strengthens consolidation of emotionally arousing events."},
+    {"match": "thalamus", "role": "Anterior and mediodorsal thalamic nuclei relay memory circuits; thalamic damage can cause amnesia."}
+   ],
+   "notModeled": "Hippocampal subfields (CA1, CA3, dentate gyrus), entorhinal cortex and individual thalamic nuclei are not separately modelled.",
+   "evidence": [
+    {"finding": "Bilateral medial temporal removal in patient H.M. produced profound anterograde amnesia with preserved skill learning.", "source": "Scoville & Milner 1957, Journal of Neurology, Neurosurgery and Psychiatry 20:11", "kind": "lesion"},
+    {"finding": "Licensed London taxi drivers had larger posterior hippocampi than controls, correlating with years of experience.", "source": "Maguire et al. 2000, PNAS 97:4398", "kind": "imaging"},
+    {"finding": "A circuit linking hippocampus, mammillary bodies, thalamus and cingulate cortex was proposed as the substrate of emotion and memory.", "source": "Papez 1937, Archives of Neurology and Psychiatry 38:725", "kind": "theory"}
+   ],
+   "conditions": [
+    {"name": "Alzheimer's disease", "note": "Early medial temporal atrophy and episodic memory loss."},
+    {"name": "Korsakoff syndrome", "note": "Thiamine deficiency damages mammillary bodies and thalamus, producing severe amnesia."}
+   ],
+   "caution": "Hippocampal size is not a measure of a person's memory ability, and the taxi-driver result is correlational. Memories are stored in distributed cortical networks; the hippocampus is critical for forming, not simply holding, episodic memory."
+  },
+  {
+   "id": "reward",
+   "name": "Reward, motivation & habit",
+   "question": "Why do people pursue some outcomes, and how do repeated choices become automatic?",
+   "summary": "The striatum learns which actions pay off and, with practice, hands control from deliberate to habitual. Orbitofrontal cortex represents value, the habenula signals disappointment, and the hypothalamus sets homeostatic drive.",
+   "structures": [
+    {"match": "caudate nucleus", "role": "Goal-directed action selection and learning from outcomes."},
+    {"match": "putamen", "role": "Habit formation and automatised skilled action."},
+    {"match": "globus pallidus", "role": "Output stage of basal-ganglia loops that releases or holds back action."},
+    {"match": "orbital gyrus", "role": "Represents the subjective value of options and expected outcomes."},
+    {"match": "habenula", "role": "Encodes aversive outcomes and negative reward prediction; suppresses dopamine signalling."},
+    {"match": "hypothalamus", "role": "Homeostatic drives such as hunger and thirst that set motivational state."},
+    {"match": "amygdala", "role": "Attaches value to cues that predict reward or threat."}
+   ],
+   "notModeled": "The dopamine sources themselves (ventral tegmental area, substantia nigra), the nucleus accumbens and the ventral pallidum are not in the dataset, so the core reward circuit is incomplete here.",
+   "evidence": [
+    {"finding": "Rats repeatedly self-stimulated electrodes placed in septal regions, establishing brain 'reward' sites.", "source": "Olds & Milner 1954, Journal of Comparative and Physiological Psychology 47:419", "kind": "stimulation"},
+    {"finding": "Dopamine neurons encode reward prediction error rather than reward itself.", "source": "Schultz, Dayan & Montague 1997, Science 275:1593", "kind": "recording"},
+    {"finding": "Habenula neurons are excited by cues predicting no reward or punishment.", "source": "Matsumoto & Hikosaka 2007, Nature 447:1111", "kind": "recording"},
+    {"finding": "Dorsolateral striatum supports habitual control once behaviour is well practised.", "source": "Yin & Knowlton 2006, Nature Reviews Neuroscience 7:464", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Parkinson's disease", "note": "Loss of nigrostriatal dopamine impairs movement and often motivation."},
+    {"name": "Substance use disorders", "note": "Repeated drug exposure alters striatal learning and shifts behaviour toward habit."},
+    {"name": "Obsessive-compulsive disorder", "note": "Altered cortico-striatal loop function is reported."}
+   ],
+   "caution": "Dopamine is not 'the pleasure chemical'. Wanting and liking are dissociable (Berridge & Robinson 1998, Brain Research Reviews 28:309), and reward-circuit findings from rodents transfer to people only partly."
+  },
+  {
+   "id": "language",
+   "name": "Language & communication",
+   "question": "How are words produced, understood and linked to meaning?",
+   "summary": "In most people the left hemisphere carries the core of speech production and comprehension, organised as a ventral stream for meaning and a dorsal stream linking sound to articulation. Both hemispheres contribute, and the right adds prosody and discourse.",
+   "structures": [
+    {"match": "^left inferior frontal gyrus", "role": "Broca's region: speech production, syntactic processing and selection among competing words."},
+    {"match": "^posterior part of left superior temporal gyrus", "role": "Wernicke's region: mapping speech sounds onto words and comprehension."},
+    {"match": "^left supramarginal gyrus", "role": "Phonological working memory and sound-to-articulation mapping."},
+    {"match": "^left angular gyrus", "role": "Reading, number processing and integrating word meaning."},
+    {"match": "^left middle temporal gyrus", "role": "Retrieving word meaning (lexical-semantic access)."},
+    {"match": "precentral gyrus", "role": "Primary motor cortex that drives the articulators."},
+    {"match": "corpus callosum", "role": "Carries information between hemispheres, including prosody and discourse from the right."}
+   ],
+   "notModeled": "The arcuate fasciculus and other language tracts, and the right-hemisphere homologues' subregions, are not individually modelled.",
+   "evidence": [
+    {"finding": "A patient with a left frontal lesion could understand speech but produced almost none (the 'Tan' case).", "source": "Broca 1861", "kind": "lesion"},
+    {"finding": "Left posterior temporal lesions produced fluent but meaningless speech with poor comprehension.", "source": "Wernicke 1874", "kind": "lesion"},
+    {"finding": "Speech processing is organised in dual ventral and dorsal streams, which revises the classical two-area picture.", "source": "Hickok & Poeppel 2007, Nature Reviews Neuroscience 8:393", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Aphasia after left-hemisphere stroke", "note": "Expressive, receptive or global impairments depending on the lesion."},
+    {"name": "Developmental dyslexia", "note": "Atypical left temporoparietal activity during reading is reported at group level."}
+   ],
+   "caution": "The classical Broca-Wernicke model is a teaching simplification. Left dominance applies to most right-handed people and is more variable in left-handers, and this model contains both hemispheres."
+  },
+  {
+   "id": "perception",
+   "name": "Perception & attention",
+   "question": "How does sensory input become a recognised object and a focus of attention?",
+   "summary": "Retinal signals cross at the optic chiasm, relay through the lateral geniculate body to occipital cortex, then split into a ventral stream for what things are and a dorsal stream for where they are and how to act on them. Parietal and midbrain structures steer attention.",
+   "structures": [
+    {"match": "optic (nerve|chiasm|tract)", "role": "Carries retinal signals; fibres from the nasal retina cross at the chiasm so each hemisphere sees the opposite visual field."},
+    {"match": "lateral geniculate body", "role": "Thalamic relay between the retina and primary visual cortex."},
+    {"match": "occipital lobe", "role": "Primary and early visual cortex."},
+    {"match": "fusiform gyrus", "role": "Ventral stream: faces, words and object categories."},
+    {"match": "inferior temporal gyrus", "role": "Ventral stream: object recognition."},
+    {"match": "superior parietal lobule", "role": "Dorsal stream: spatial attention and visually guided action."},
+    {"match": "superior colliculus", "role": "Orients the eyes and attention toward salient events."},
+    {"match": "inferior colliculus|medial geniculate body", "role": "Auditory midbrain and thalamic relay for hearing."}
+   ],
+   "notModeled": "Visual areas V1 to V5 are one mesh per hemisphere (occipital lobe), the pulvinar is not separate, and no auditory or somatosensory cortex beyond the postcentral gyrus is parcellated.",
+   "evidence": [
+    {"finding": "Visual processing divides into a ventral perception stream and a dorsal action stream.", "source": "Goodale & Milner 1992, Trends in Neurosciences 15:20", "kind": "theory"},
+    {"finding": "A fusiform region responds selectively to faces.", "source": "Kanwisher, McDermott & Chun 1997, Journal of Neuroscience 17:4302", "kind": "imaging"},
+    {"finding": "Goal-directed and stimulus-driven attention rely on partly distinct dorsal and ventral frontoparietal networks.", "source": "Corbetta & Shulman 2002, Nature Reviews Neuroscience 3:201", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Hemispatial neglect", "note": "Most often follows right parietal damage and leaves the left side of space unattended."},
+    {"name": "Prosopagnosia", "note": "Impaired face recognition after occipitotemporal damage."}
+   ],
+   "caution": "Selectivity in imaging means a region responds more to a category, not that it works alone. Attention is a distributed network effect, so single-structure explanations overreach."
+  },
+  {
+   "id": "skill",
+   "name": "Sensorimotor control & skill learning",
+   "question": "How do movements become fluent, and what changes as a skill is practised?",
+   "summary": "Motor cortex issues commands, somatosensory cortex reports the result, the cerebellum corrects errors against predictions, and the basal ganglia help select and automatise sequences. Practice is reported to shift control away from effortful frontal processing toward these circuits.",
+   "structures": [
+    {"match": "precentral gyrus", "role": "Primary motor cortex: voluntary movement, organised as a body map."},
+    {"match": "postcentral gyrus", "role": "Primary somatosensory cortex: touch and body position."},
+    {"match": "cerebellum", "role": "Predicts the sensory result of movement and corrects errors; also contributes to timing and cognition."},
+    {"match": "putamen", "role": "Automatisation of well-practised sequences."},
+    {"match": "globus pallidus", "role": "Gates movement through basal-ganglia output."},
+    {"match": "internal capsule", "role": "Compact fibre bundle carrying motor and sensory signals; small lesions cause large deficits."},
+    {"match": "thalamus", "role": "Relays cerebellar and basal-ganglia output to cortex."}
+   ],
+   "notModeled": "Spinal cord, subthalamic nucleus, substantia nigra and the cerebellar nuclei are not in the dataset.",
+   "evidence": [
+    {"finding": "Electrical stimulation mapped motor and sensory strips as a body map (the homunculus).", "source": "Penfield & Boldrey 1937, Brain 60:389", "kind": "stimulation"},
+    {"finding": "The cerebellum learns internal models that support motor adaptation.", "source": "Ito 2008, Nature Reviews Neuroscience 9:304", "kind": "review"},
+    {"finding": "Cerebellar damage can also impair executive function, language and emotion regulation.", "source": "Schmahmann & Sherman 1998, Brain 121:561", "kind": "case"}
+   ],
+   "conditions": [
+    {"name": "Parkinson's disease", "note": "Basal-ganglia dysfunction impairs initiation and fluency of movement."},
+    {"name": "Cerebellar ataxia", "note": "Uncoordinated, poorly timed movement."},
+    {"name": "Lacunar stroke in the internal capsule", "note": "Pure motor or sensory deficits from a small lesion."}
+   ],
+   "caution": "The homunculus is a coarse map and cortical representations overlap and reorganise with experience. Claims that skills 'move' from one structure to another are group-level trends, not a fixed handover."
+  },
+  {
+   "id": "social",
+   "name": "Social cognition & self",
+   "question": "How do people read others' minds, feel with them and think about themselves?",
+   "summary": "Social understanding recruits temporoparietal, medial frontal and cingulate regions that overlap with the default mode network, plus face and salience areas. The same regions are active when people think about themselves and about others.",
+   "structures": [
+    {"match": "angular gyrus|supramarginal gyrus", "role": "Temporoparietal region implicated in perspective-taking and thinking about others' beliefs."},
+    {"match": "superior temporal gyrus", "role": "Voices, gaze direction and biological motion."},
+    {"match": "middle temporal gyrus", "role": "Semantic and conceptual knowledge, including knowledge of people."},
+    {"match": "superior frontal gyrus", "role": "Medial portions support self-reference and mentalising."},
+    {"match": "cingulate gyrus", "role": "Posterior portion is a hub of the default mode network; anterior portion tracks empathy and social pain."},
+    {"match": "insula", "role": "Shared bodily feeling underlying empathy."},
+    {"match": "fusiform gyrus", "role": "Ventral-stream region selective for faces, supporting recognition of who someone is."},
+    {"match": "amygdala", "role": "Social salience, including attention to eyes and trustworthiness."}
+   ],
+   "notModeled": "The temporoparietal junction and medial prefrontal cortex are not delineated as such, so those regions are approximated by neighbouring gyri.",
+   "evidence": [
+    {"finding": "A right temporoparietal region responds selectively when people reason about others' beliefs.", "source": "Saxe & Kanwisher 2003, NeuroImage 19:1835", "kind": "imaging"},
+    {"finding": "A set of regions is consistently active at rest and during self-referential thought (the default mode network).", "source": "Raichle et al. 2001, PNAS 98:676", "kind": "imaging"},
+    {"finding": "Social exclusion activated regions overlapping those active in physical pain, an interpretation that remains debated.", "source": "Eisenberger, Lieberman & Williams 2003, Science 302:290", "kind": "imaging"}
+   ],
+   "conditions": [
+    {"name": "Autism spectrum", "note": "Group-level differences in social-brain connectivity are reported; the condition is highly heterogeneous."},
+    {"name": "Social anxiety disorder", "note": "Heightened amygdala and insula reactivity to social threat."}
+   ],
+   "caution": "Reverse inference is the standard trap here: activity in a region does not show that a psychological process occurred, because the same regions serve many processes (Poldrack 2006, Trends in Cognitive Sciences 10:59)."
+  },
+  {
+   "id": "stress",
+   "name": "Stress & homeostasis",
+   "question": "How does the brain mount, sustain and shut off a stress response?",
+   "summary": "Threat appraisal in the amygdala and cortex drives the hypothalamus to trigger the pituitary, which signals the adrenal glands to release cortisol. The hippocampus and prefrontal cortex help shut the response off, so chronic activation can erode the feedback that regulates it.",
+   "structures": [
+    {"match": "hypothalamus", "role": "Initiates the stress cascade by releasing corticotropin-releasing hormone."},
+    {"match": "pituitary gland", "role": "Releases ACTH, which tells the adrenal glands to secrete cortisol."},
+    {"match": "amygdala", "role": "Activates the stress response when a threat is appraised."},
+    {"match": "hippocampus", "role": "Contributes negative feedback; dense with glucocorticoid receptors."},
+    {"match": "orbital gyrus|middle frontal gyrus", "role": "Top-down appraisal and regulation of the response."},
+    {"match": "insula", "role": "Registers the bodily state of stress."}
+   ],
+   "notModeled": "The adrenal glands, the paraventricular nucleus of the hypothalamus and brainstem noradrenergic nuclei (locus coeruleus) sit outside the dataset or are not separate meshes.",
+   "evidence": [
+    {"finding": "Diverse noxious agents produce a common, stereotyped bodily stress syndrome.", "source": "Selye 1936, Nature 138:32", "kind": "theory"},
+    {"finding": "Stress and glucocorticoids reshape hippocampus, amygdala and prefrontal structure and function.", "source": "McEwen 2007, Physiological Reviews 87:873", "kind": "review"},
+    {"finding": "Stress signalling impairs prefrontal cortex function, weakening top-down control.", "source": "Arnsten 2009, Nature Reviews Neuroscience 10:410", "kind": "review"},
+    {"finding": "Smaller hippocampi in combat-exposed veterans with PTSD were also found in their unexposed identical twins, suggesting a pre-existing vulnerability.", "source": "Gilbertson et al. 2002, Nature Neuroscience 5:1242", "kind": "twin study"}
+   ],
+   "conditions": [
+    {"name": "PTSD and major depression", "note": "Altered HPA-axis regulation and limbic-prefrontal function are reported."},
+    {"name": "Burnout", "note": "An ICD-11 occupational phenomenon, not a medical condition; brain-level findings are preliminary."}
+   ],
+   "caution": "Stress effects on the brain are bidirectional and context-dependent. The twin study shows why a smaller hippocampus in a stressed group cannot be read as damage caused by stress."
+  },
+  {
+   "id": "arousal",
+   "name": "Arousal, sleep & consciousness",
+   "question": "What keeps the brain awake, switches it into sleep and sets its daily rhythm?",
+   "summary": "Brainstem and hypothalamic circuits control wakefulness and sleep stages, while the thalamus gates how much information reaches cortex. The pineal gland translates the light-dark cycle into melatonin.",
+   "structures": [
+    {"match": "midbrain|peduncle of midbrain", "role": "Houses upper reticular formation circuits that promote cortical arousal."},
+    {"match": "pons", "role": "Generates REM sleep and contains arousal circuits."},
+    {"match": "medulla oblongata", "role": "Vital autonomic control of breathing and circulation."},
+    {"match": "hypothalamus", "role": "Sleep-wake switching and circadian timing."},
+    {"match": "thalamus", "role": "Gate to the cortex; thalamocortical rhythms shape sleep stages."},
+    {"match": "pineal body", "role": "Secretes melatonin in the dark, signalling biological night."}
+   ],
+   "notModeled": "The reticular formation, suprachiasmatic nucleus, locus coeruleus, raphe nuclei and orexin neurons are not separate meshes, although they carry most of the arousal circuitry.",
+   "evidence": [
+    {"finding": "Stimulating the brainstem reticular formation activated the cortex, establishing an ascending arousal system.", "source": "Moruzzi & Magoun 1949, Electroencephalography and Clinical Neurophysiology 1:455", "kind": "stimulation"},
+    {"finding": "Rapid-eye-movement sleep was identified as a distinct, regularly recurring sleep state.", "source": "Aserinsky & Kleitman 1953, Science 118:273", "kind": "recording"},
+    {"finding": "Hypothalamic circuits form a flip-flop switch between sleep and wake and keep circadian timing.", "source": "Saper, Scammell & Lu 2005, Nature 437:1257", "kind": "review"}
+   ],
+   "conditions": [
+    {"name": "Insomnia", "note": "Hyperarousal models propose persistent activation of wake-promoting systems."},
+    {"name": "Narcolepsy type 1", "note": "Loss of hypothalamic orexin neurons destabilises wakefulness."},
+    {"name": "Disorders of consciousness", "note": "Severe brainstem or thalamic injury can disrupt arousal."}
+   ],
+   "caution": "Arousal (being awake) is not awareness (having experience). No structure here is a 'seat of consciousness'."
+  }
+ ]
+}
